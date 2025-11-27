@@ -1,0 +1,37 @@
+@model CursoMVC.Models.Calculadora
+
+@{
+    ViewData["Title"] = "Calculadora";
+}
+
+<center><h2>Calculadora</h2></center>
+
+<form asp-controller="Home" asp-action="Calculadora" method="post">
+    <div class="form-group">
+
+        <div class="row">
+            <label asp-for="n1" class="col-lg-2"></label>
+            <input asp-for="n1" type="number" class="col-lg-2" />
+        </div>
+
+        <div class="row">
+            <label asp-for="n2" class="col-lg-2"></label>
+            <input asp-for="n2" type="number" class="col-lg-2" />
+        </div>
+
+        <div class="row">
+            <label asp-for="operaciones" class="col-lg-2"></label>
+            <select asp-for="operaciones" class="col-lg-2" asp-items="Html.GetEnumSelectList<CursoMVC.Models.Operaciones>()"></select>
+        </div>
+
+        <div class="row">
+            <label asp-for="resultado" class="col-lg-2"></label>
+            <input asp-for="resultado" disabled class="col-lg-2" />
+        </div>
+
+        <div>
+            <input type="submit" value="Calcular" class="btn btn-primary col-lg-2" />
+        </div>
+
+    </div>
+</form>
